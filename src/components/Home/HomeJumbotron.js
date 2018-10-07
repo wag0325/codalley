@@ -16,13 +16,6 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Markdown from '../Utils/Markdown';
 
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import HomeJumbotron from './HomeJumbotron';
-import HomeFeatured from './HomeFeatured';
-
-import post1 from './sample-page-layout.1.md';
-
 const styles = theme => ({
     layout: {
         width: 'auto',
@@ -106,8 +99,6 @@ const featuredPosts = [
     },
 ];
 
-const posts = [post1];
-
 const archives = [
     'March 2020',
     'February 2020',
@@ -125,67 +116,34 @@ const archives = [
 
 const social = ['GitHub', 'Twitter', 'Facebook'];
 
-function Blog(props) {
+function HomeJumbotron(props) {
     const { classes } = props;
-    console.log('posts', posts, post1);
 
     return (
         <React.Fragment>
-            <CssBaseline />
-            <div className={classes.layout}>
-                <Header />
-                <main>
-                    <HomeJumbotron />
-                    <HomeFeatured />
-                    <Grid container spacing={40} className={classes.mainGrid}>
-                        {/* Main content */}
-                        <Grid item xs={12} md={8}>
-                            <Typography variant="title" gutterBottom>
-                                From the Firehose
-              </Typography>
-                            <Divider />
-                            {posts.map(post => (
-                                <Markdown className={classes.markdown} key={post.substring(0, 40)}>
-                                    {post}
-                                </Markdown>
-                            ))}
-                        </Grid>
-                        {/* End main content */}
-                        {/* Sidebar */}
-                        <Grid item xs={12} md={4}>
-                            <Paper elevation={0} className={classes.sidebarAboutBox}>
-                                <Typography variant="title" gutterBottom>
-                                    About
-                </Typography>
-                                <Typography>
-                                    Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit
-                                    amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
-                </Typography>
-                            </Paper>
-                            <Typography variant="title" gutterBottom className={classes.sidebarSection}>
-                                Archives
-              </Typography>
-                            {archives.map(archive => (
-                                <Typography key={archive}>{archive}</Typography>
-                            ))}
-                            <Typography variant="title" gutterBottom className={classes.sidebarSection}>
-                                Social
-              </Typography>
-                            {social.map(network => (
-                                <Typography key={network}>{network}</Typography>
-                            ))}
-                        </Grid>
-                        {/* End sidebar */}
+            {/* Main featured post */}
+            <Paper className={classes.mainFeaturedPost}>
+                <Grid container>
+                    <Grid item md={6}>
+                        <div className={classes.mainFeaturedPostContent}>
+                            <Typography variant="display2" color="inherit" gutterBottom>
+                                Title of a longer featured blog post
+            </Typography>
+                            <Typography variant="headline" color="inherit" paragraph>
+                                Multiple lines of text that form the lede, informing new readers quickly and
+                                efficiently about what&apos;s most interesting in this post&apos;s contents…
+            </Typography>
+                        </div>
                     </Grid>
-                </main>
-            </div>
-            <Footer />
+                </Grid>
+            </Paper>
+            {/* End main featured post */}
         </React.Fragment>
     );
 }
 
-Blog.propTypes = {
+HomeJumbotron.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Blog);
+export default withStyles(styles)(HomeJumbotron);
