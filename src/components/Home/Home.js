@@ -15,6 +15,8 @@ import Hidden from '@material-ui/core/Hidden';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Markdown from '../Utils/Markdown';
+
+import Footer from '../Footer/Footer';
 import post1 from './sample-page-layout.1.md';
 
 const styles = theme => ({
@@ -78,6 +80,9 @@ const styles = theme => ({
 });
 
 const sections = [
+    'HTML',
+    'CSS',
+    'JavaScript',
     'Algorithms',
     'Data Structures',
 ];
@@ -243,16 +248,7 @@ function Blog(props) {
                     </Grid>
                 </main>
             </div>
-            {/* Footer */}
-            <footer className={classes.footer}>
-                <Typography variant="title" align="center" gutterBottom>
-                    Footer
-        </Typography>
-                <Typography variant="subheading" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
-        </Typography>
-            </footer>
-            {/* End footer */}
+            <Footer />
         </React.Fragment>
     );
 }
