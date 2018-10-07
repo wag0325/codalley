@@ -16,6 +16,7 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Markdown from '../Utils/Markdown';
 
+import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import post1 from './sample-page-layout.1.md';
 
@@ -129,32 +130,7 @@ function Blog(props) {
         <React.Fragment>
             <CssBaseline />
             <div className={classes.layout}>
-                <Toolbar className={classes.toolbarMain}>
-                    <Button size="small">Subscribe</Button>
-                    <Typography
-                        component="h2"
-                        variant="headline"
-                        color="inherit"
-                        align="center"
-                        noWrap
-                        className={classes.toolbarTitle}
-                    >
-                        Codalley
-          </Typography>
-                    <IconButton>
-                        <SearchIcon />
-                    </IconButton>
-                    <Button variant="outlined" size="small">
-                        Sign up
-          </Button>
-                </Toolbar>
-                <Toolbar variant="dense" className={classes.toolbarSecondary}>
-                    {sections.map(section => (
-                        <Typography color="inherit" noWrap key={section}>
-                            {section}
-                        </Typography>
-                    ))}
-                </Toolbar>
+                <Header />
                 <main>
                     {/* Main featured post */}
                     <Paper className={classes.mainFeaturedPost}>
