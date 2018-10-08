@@ -54,7 +54,7 @@ function Header(props) {
                     Sign up
                 </Button> */}
             </Toolbar>
-            <Toolbar variant="dense" className={classes.toolbarSecondary}>
+            {/* <Toolbar variant="dense" className={classes.toolbarSecondary}>
                 {sections.map(section => (
                     <Link className={classes.menuItemLink} to={`/${section.slug}`} >
                         <Typography color="inherit" noWrap key={section.slug}>
@@ -62,7 +62,7 @@ function Header(props) {
                         </Typography>
                     </Link>
                 ))}
-            </Toolbar>
+            </Toolbar> */}
         </React.Fragment>
     );
 }

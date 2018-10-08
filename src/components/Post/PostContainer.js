@@ -22,7 +22,7 @@ function PostContainer(props) {
         <React.Fragment>
             <Grid container spacing={40} className={classes.mainGrid}>
                 <PostList />
-                <PostSidebar />
+                {/* <PostSidebar /> */}
             </Grid>
         </React.Fragment>
     );
