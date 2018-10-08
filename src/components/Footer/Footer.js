@@ -26,15 +26,16 @@ const styles = theme => ({
 
 function Footer(props) {
     const { classes } = props;
+    const iCurrentYear = new Date().getFullYear();
+    console.log(iCurrentYear);
     return (
         <React.Fragment>
             {/* Footer */}
             <footer className={classes.footer}>
-                <Typography variant="title" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography variant="subheading" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
+                {/* <Typography variant="title" align="center" gutterBottom>
+                </Typography> */}
+                <Typography align="center" color="textSecondary" component="p">
+                    &copy; {iCurrentYear} - All Rights Reserved.
                 </Typography>
             </footer>
             {/* End footer */}
