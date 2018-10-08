@@ -34,7 +34,7 @@ function Header(props) {
     return (
         <React.Fragment>
             <Toolbar className={classes.toolbarMain}>
-                <Button size="small">Subscribe</Button>
+                {/* <Button size="small">Subscribe</Button> */}
                 <Typography
                     component="h2"
                     variant="headline"
@@ -44,13 +44,13 @@ function Header(props) {
                     className={classes.toolbarTitle}
                 >
                     Codalley
-          </Typography>
-                <IconButton>
+                </Typography>
+                {/* <IconButton>
                     <SearchIcon />
                 </IconButton>
                 <Button variant="outlined" size="small">
                     Sign up
-          </Button>
+                </Button> */}
             </Toolbar>
             <Toolbar variant="dense" className={classes.toolbarSecondary}>
                 {sections.map(section => (
