@@ -5,8 +5,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import HomeJumbotron from './HomeJumbotron';
-import HomeFeatured from './HomeFeatured';
 import PostContainer from '../Post/PostContainer';
 
 const styles = theme => ({
@@ -31,8 +29,6 @@ function Home(props) {
             <div className={classes.layout}>
                 <Header />
                 <main>
-                    {/* <HomeJumbotron />
-                    <HomeFeatured /> */}
                     <PostContainer />
                 </main>
             </div>
