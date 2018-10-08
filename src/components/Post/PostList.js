@@ -16,14 +16,15 @@ import Markdown from '../Utils/Markdown';
 
 import Post from './Post';
 
-import post1 from '../../contents/sample-page-layout.1.md';
-
+import post1 from '../../contents/programming/algorithms/algorithms.md';
+import post2 from '../../contents/programming/data-structures/data-structures.md';
+import post3 from '../../contents/programming/js/js-array.md';
 
 const styles = theme => ({
 });
 
 
-const posts = [post1];
+const posts = [post1, post2, post3];
 
 function PostList(props) {
     const { classes } = props;
