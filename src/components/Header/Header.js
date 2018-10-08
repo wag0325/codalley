@@ -23,11 +23,11 @@ const styles = theme => ({
 });
 
 const sections = [
-    'HTML',
-    'CSS',
-    'JavaScript',
-    'Algorithms',
-    'Data Structures',
+    { name: 'HTML', slug: 'html' },
+    { name: 'CSS', slug: 'css' },
+    { name: 'JavaScript', slug: 'javascript' },
+    { name: 'Algorithms', slug: 'algorithms' },
+    { name: 'Data Structures', slug: 'data-structures' },
 ];
 
 function Header(props) {
@@ -56,9 +56,9 @@ function Header(props) {
             </Toolbar>
             <Toolbar variant="dense" className={classes.toolbarSecondary}>
                 {sections.map(section => (
-                    <Link className={classes.menuItemLink} to={`/${section.toLowerCase()}`} >
-                        <Typography color="inherit" noWrap key={section}>
-                            {section}
+                    <Link className={classes.menuItemLink} to={`/${section.slug}`} >
+                        <Typography color="inherit" noWrap key={section.slug}>
+                            {section.name}
                         </Typography>
                     </Link>
                 ))}
