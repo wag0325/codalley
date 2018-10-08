@@ -16,12 +16,6 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Markdown from '../Utils/Markdown';
 
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import HomeJumbotron from './HomeJumbotron';
-import HomeFeatured from './HomeFeatured';
-import PostContainer from '../Post/PostContainer';
-
 const styles = theme => ({
     layout: {
         width: 'auto',
@@ -122,27 +116,42 @@ const archives = [
 
 const social = ['GitHub', 'Twitter', 'Facebook'];
 
-function Home(props) {
+function PostSidebar(props) {
     const { classes } = props;
 
     return (
         <React.Fragment>
-            <CssBaseline />
-            <div className={classes.layout}>
-                <Header />
-                <main>
-                    <HomeJumbotron />
-                    <HomeFeatured />
-                    <PostContainer />
-                </main>
-            </div>
-            <Footer />
+            {/* Sidebar */}
+            <Grid item xs={12} md={4}>
+                <Paper elevation={0} className={classes.sidebarAboutBox}>
+                    <Typography variant="title" gutterBottom>
+                        About
+            </Typography>
+                    <Typography>
+                        Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit
+                        amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+            </Typography>
+                </Paper>
+                <Typography variant="title" gutterBottom className={classes.sidebarSection}>
+                    Archives
+            </Typography>
+                {archives.map(archive => (
+                    <Typography key={archive}>{archive}</Typography>
+                ))}
+                <Typography variant="title" gutterBottom className={classes.sidebarSection}>
+                    Social
+            </Typography>
+                {social.map(network => (
+                    <Typography key={network}>{network}</Typography>
+                ))}
+            </Grid>
+            {/* End sidebar */}
         </React.Fragment>
     );
 }
 
-Home.propTypes = {
+PostSidebar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(PostSidebar);

@@ -16,11 +16,8 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Markdown from '../Utils/Markdown';
 
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import HomeJumbotron from './HomeJumbotron';
-import HomeFeatured from './HomeFeatured';
-import PostContainer from '../Post/PostContainer';
+import post1 from '../../contents/sample-page-layout.1.md';
+import Post from './Post';
 
 const styles = theme => ({
     layout: {
@@ -105,6 +102,8 @@ const featuredPosts = [
     },
 ];
 
+const posts = [post1];
+
 const archives = [
     'March 2020',
     'February 2020',
@@ -122,27 +121,29 @@ const archives = [
 
 const social = ['GitHub', 'Twitter', 'Facebook'];
 
-function Home(props) {
+function PostList(props) {
     const { classes } = props;
+    console.log('posts', posts, post1);
 
     return (
         <React.Fragment>
-            <CssBaseline />
-            <div className={classes.layout}>
-                <Header />
-                <main>
-                    <HomeJumbotron />
-                    <HomeFeatured />
-                    <PostContainer />
-                </main>
-            </div>
-            <Footer />
+            {/* Main content */}
+            <Grid item xs={12} md={8}>
+                <Typography variant="title" gutterBottom>
+                    Tutorials
+                </Typography>
+                <Divider />
+                {posts.map(post => (
+                    <Post post={post} />
+                ))}
+            </Grid>
+            {/* End main content */}
         </React.Fragment>
     );
 }
 
-Home.propTypes = {
+PostList.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(PostList);

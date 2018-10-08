@@ -16,11 +16,8 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Markdown from '../Utils/Markdown';
 
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import HomeJumbotron from './HomeJumbotron';
-import HomeFeatured from './HomeFeatured';
-import PostContainer from '../Post/PostContainer';
+import PostSidebar from './PostSidebar';
+import PostList from './PostList';
 
 const styles = theme => ({
     layout: {
@@ -122,27 +119,21 @@ const archives = [
 
 const social = ['GitHub', 'Twitter', 'Facebook'];
 
-function Home(props) {
+function PostContainer(props) {
     const { classes } = props;
 
     return (
         <React.Fragment>
-            <CssBaseline />
-            <div className={classes.layout}>
-                <Header />
-                <main>
-                    <HomeJumbotron />
-                    <HomeFeatured />
-                    <PostContainer />
-                </main>
-            </div>
-            <Footer />
+            <Grid container spacing={40} className={classes.mainGrid}>
+                <PostList />
+                <PostSidebar />
+            </Grid>
         </React.Fragment>
     );
 }
 
-Home.propTypes = {
+PostContainer.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(PostContainer);
