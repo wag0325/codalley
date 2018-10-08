@@ -106,6 +106,46 @@ Types of Asymptotic Notation:
 Sorting a list items into ascending or descending order. *Note: JavaScript has a built-in sorting method (Array.sort()).
 
 ### Selection Sort
+- Worst-Case Complexity: O(n^2)
+
+#### Selection Sort Pseudocode
+1. Find the smallest card. Swap it with the first card.
+2. Find the second-smallest card. Swap it with the second card.
+3. Find the third-smallest card. Swap it with the third card.
+4. Repeat finding the next-smallest card, and swapping it into the correct position until the array is sorted.
+
+#### Selection Sort in JavaScript
+```
+var swap = function(array, firstIndex, secondIndex) {
+    var temp = array[firstIndex];
+    array[firstIndex] = array[secondIndex];
+    array[secondIndex] = temp;
+};
+
+var indexOfMinimum = function(array, startIndex) {
+    var minValue = array[startIndex];
+    var minIndex = startIndex;
+    for(var i = minIndex + 1; i < array.length; i++) {
+        if(array[i] < minValue) {
+            minIndex = i;
+            minValue = array[i];
+        }
+    } 
+    return minIndex;
+}; 
+
+var selectionSort = function(array) {
+    var minIndex = 0;
+    for (var i=0; i < array.length; i++) {
+        minIndex = indexOfMinimum(array, i);
+        swap(array, i, minIndex);
+    }
+};
+
+var array = [22, 11, 99, 88, 9, 7, 42];
+selectionSort(array);
+```
+
 ### Merge Sort
 ### Quick Sort
 ### Insertion Sort
