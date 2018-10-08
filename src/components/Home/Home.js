@@ -31,8 +31,8 @@ function Home(props) {
             <div className={classes.layout}>
                 <Header />
                 <main>
-                    <HomeJumbotron />
-                    <HomeFeatured />
+                    {/* <HomeJumbotron />
+                    <HomeFeatured /> */}
                     <PostContainer />
                 </main>
             </div>

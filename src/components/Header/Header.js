@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
@@ -54,9 +56,11 @@ function Header(props) {
             </Toolbar>
             <Toolbar variant="dense" className={classes.toolbarSecondary}>
                 {sections.map(section => (
-                    <Typography color="inherit" noWrap key={section}>
-                        {section}
-                    </Typography>
+                    <Link className={classes.menuItemLink} to={`/${section.toLowerCase()}`} >
+                        <Typography color="inherit" noWrap key={section}>
+                            {section}
+                        </Typography>
+                    </Link>
                 ))}
             </Toolbar>
         </React.Fragment>
@@ -67,4 +71,4 @@ Header.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(withRouter(Header));
