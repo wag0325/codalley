@@ -19,16 +19,16 @@ import Post from './Post';
 import post1 from '../../contents/programming/algorithms/algorithms.md';
 import post2 from '../../contents/programming/data-structures/data-structures.md';
 import post3 from '../../contents/programming/js/js-array.md';
+import post4 from '../../contents/programming/interview/javascript.md';
 
 const styles = theme => ({
 });
 
 
-const posts = [post1, post2, post3];
+const posts = [post1, post2, post3, post4];
 
 function PostList(props) {
     const { classes } = props;
-    console.log('posts', posts, post1);
 
     return (
         <React.Fragment>

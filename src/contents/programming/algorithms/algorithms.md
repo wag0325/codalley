@@ -145,10 +145,11 @@ var selectionSort = function(array) {
 var array = [22, 11, 99, 88, 9, 7, 42];
 selectionSort(array);
 ```
+### Insertion Sort
+- A simple yet inefficient sorting algorithm.
 
 ### Merge Sort
 ### Quick Sort
-### Insertion Sort
 
 ## Graph Algorithms
 ### Graph Representation
