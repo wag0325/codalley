@@ -105,8 +105,8 @@ Types of Asymptotic Notation:
 ## Sorting
 Sorting a list items into ascending or descending order. *Note: JavaScript has a built-in sorting method (Array.sort()).
 
-### Selection Sort
-- Worst-Case Complexity: O(n^2)
+### Selection Sort [Best, Worst: O(N^2)]
+Find the smallest item and swap it into the first position. Repeat this process for the remaining N-1 items.
 
 #### Selection Sort Pseudocode
 1. Find the smallest card. Swap it with the first card.
@@ -145,12 +145,14 @@ var selectionSort = function(array) {
 var array = [22, 11, 99, 88, 9, 7, 42];
 selectionSort(array);
 ```
-### Insertion Sort
-- A simple yet inefficient sorting algorithm.
+
+### Bubble Sort [Best: O(N), Worst: O(N^2)]
+Compare two adjacent items starting from the left and keep "bubbling" the larger number to the right. 
+
+### Insertion Sort [Best: O(N), Worst: O(N^2)]
+Sort by inserting an item from unsorted array to sorted array. Start with a sorted list of the first element and take and insert the first element from N-1 elements to the sorted list.
 
 ### Merge Sort
-### Quick Sort
-
 ## Graph Algorithms
 ### Graph Representation
 ### Breadth-first search
@@ -160,3 +162,4 @@ selectionSort(array);
 ## Reference
 - https://www.khanacademy.org
 - https://github.com/kdn251/interviews
+- https://betterexplained.com/articles/sorting-algorithms/

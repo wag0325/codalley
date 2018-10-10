@@ -129,7 +129,16 @@ Cookies are a small text files stored in a computer to hold information used in 
 
 ### Session Variable
 
+### How to find the client-side operating system?
+Use 'Navigator.appversion'.
 
+### Types of Errors in JavaScript
+1. Load time errors occur when loading a page, such as improper syntax errors.
+2. Run time error occur from the misusing the command inside the HTML langauge.
+3. Logical errors occur from bad logic performed in a function.
+
+### Window.onload vs onDocumentReady
+onDocumentReady will run once DOM (Document Object Model) is loaded, whereas window.onload runs once all the information on the page is loaded.
 ## Reference
 1. https://coderbyte.com/algorithm/10-common-javascript-interview-questions
 2. https://www.maxpou.fr/js-exercises-explained/
