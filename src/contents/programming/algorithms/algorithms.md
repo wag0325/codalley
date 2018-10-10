@@ -147,19 +147,107 @@ selectionSort(array);
 ```
 
 ### Bubble Sort [Best: O(N), Worst: O(N^2)]
-Compare two adjacent items starting from the left and keep "bubbling" the larger number to the right. 
+Compare two adjacent items starting from the left. Keep "bubbling" and swap the larger number to the right. Repeat the left-to-right bubbling until the list is in order.
+
+#### Bubble Sort JavaScript Implementation
+```
+function bubbleSort(arr){
+   var len = arr.length;
+   for (var i = len-1; i>=0; i--){
+     for(var j = 1; j<=i; j++){
+       if(arr[j-1]>arr[j]){
+           var temp = arr[j-1];
+           arr[j-1] = arr[j];
+           arr[j] = temp;
+        }
+     }
+   }
+   return arr;
+}
+bubbleSort([7,5,2,4,3,9]); //[2, 3, 4, 5, 7, 9]
+bubbleSort([9,7,5,4,3,1]); //[1, 3, 4, 5, 7, 9]
+bubbleSort([1,2,3,4,5,6]); //[1, 2, 3, 4, 5, 6]
+```
 
 ### Insertion Sort [Best: O(N), Worst: O(N^2)]
 Sort by inserting an item from unsorted array to sorted array. Start with a sorted list of the first element and take and insert the first element from N-1 elements to the sorted list.
 
 ### Merge Sort
+
+### Quicksort [Best: O(N Lg N), Avg: O(N Lg N), Worst: O(N^2)]
+- One of the most popular sorting due to its speed.
+- In practice, quicksort outperforms merge sort, selection sort, and insertion sort.
+- Divide-and-conquer
+
+#### Quicksort Step-By-Step
+1. Pick a pivot
+2. Rearrange the elements into "less than a pivot" and "greater than a pivot" sublists. This procedure is called **partitioning** (the orders in the sublists do not matter).
+    - Tip: Choose the rightmost element in the subarray as the pivot.
+3. Repeat this partitioning until the sublist size is 1 element.
+4. Then, combine the list and the list will be sorted. (HOW?)
+
+#### Quicksort in JavaScript
+
+```
+function quickSort(arr, left, right){
+   var len = arr.length, 
+   pivot,
+   partitionIndex;
+
+  if(left < right){
+    pivot = right;
+    partitionIndex = partition(arr, pivot, left, right);
+    
+   //sort left and right - recursive - stops when left === right
+   quickSort(arr, left, partitionIndex - 1);
+   quickSort(arr, partitionIndex + 1, right);
+  }
+  return arr;
+}
+
+// pivot index is passed as arg
+function partition(arr, pivot, left, right){
+    // partition index is the index value that divides the less-than and greater-than values. Thus, when the less-than value is found, place the item at the partition index by swapping the less-than and current items.
+    // set partitionIndex as the leftmost value
+    var pivotValue = arr[pivot],
+       partitionIndex = left;
+    
+    // scan left-to-right
+    for(var i = left; i < right; i++){
+       // i - 3; partitionIndex = 1
+        // if the element is less than the pivot value, swap the less-than value with 
+        if(arr[i] < pivotValue){
+            swap(arr, i, partitionIndex);
+            partitionIndex++;
+        }
+    }
+    swap(arr, right, partitionIndex);
+    return partitionIndex;
+}
+
+function swap(arr, i, j){
+   var temp = arr[i];
+   arr[i] = arr[j]; 
+   arr[j] = temp;
+}
+
+quickSort([11,8,14,3,6,2,7],0,6); 
+//[2, 3, 6, 7, 8, 11, 14]
+quickSort([11,8,14,3,6,2,1, 7],0,7);
+//[1, 2, 3, 6, 7, 8, 11, 14]
+quickSort([16,11,9,7,6,5,3, 2],0,7);
+//[2, 3, 5, 6, 7, 9, 11, 16]
+```
+
 ## Graph Algorithms
 ### Graph Representation
 ### Breadth-first search
 ### Dijkstra's Algorithm
 - Usage: Finding the shortest path (between nodes in a graph)
 
-## Reference
+## References
 - https://www.khanacademy.org
 - https://github.com/kdn251/interviews
 - https://betterexplained.com/articles/sorting-algorithms/
+- https://khan4019.github.io/front-end-Interview-Questions/sort.html
+- https://brilliant.org/wiki/sorting-algorithms/ - animations
