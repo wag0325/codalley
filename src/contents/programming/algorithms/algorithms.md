@@ -172,7 +172,67 @@ bubbleSort([1,2,3,4,5,6]); //[1, 2, 3, 4, 5, 6]
 ### Insertion Sort [Best: O(N), Worst: O(N^2)]
 Sort by inserting an item from unsorted array to sorted array. Start with a sorted list of the first element and take and insert the first element from N-1 elements to the sorted list.
 
+#### Insertion Sort JavaScript Implementation
+```
+function insertionSort(arr){
+  var i, len = arr.length, el, j;
+  
+  // scan the list
+  for(i = 1; i<len; i++){
+    el = arr[i]; // i.e. 4
+    j = i; // = 1
+    
+    // loop through the sorted list
+    while(j>0 && arr[j-1]>el){
+      arr[j] = arr[j-1];
+      j--;
+    }
+    arr[j] = el;
+  }
+
+  return arr;
+}
+insertionSort([4,2,6]); // [2,4,6]
+```
+
 ### Merge Sort
+- Divide-and-conquer
+- Sorting done with the merge
+- Divide the items until there are sublists with size of ones, then merge together by comparing them.
+
+#### Merge Sort JavaScript Implementation
+```
+function mergeSort(arr){
+   var len = arr.length;
+   if(len <2)
+      return arr;
+   var mid = Math.floor(len/2),
+       left = arr.slice(0,mid),
+       right =arr.slice(mid);
+   //send left and right to the mergeSort to broke it down into pieces
+   //then merge those
+   return merge(mergeSort(left),mergeSort(right));
+}
+
+function merge(left, right){
+  var result = [],
+      lLen = left.length,
+      rLen = right.length,
+      l = 0,
+      r = 0;
+  while(l < lLen && r < rLen){
+     if(left[l] < right[r]){
+       result.push(left[l++]);
+     }
+     else{
+       result.push(right[r++]);
+    }
+  }  
+  //remaining part needs to be addred to the result
+  return result.concat(left.slice(l)).concat(right.slice(r));
+}
+```
+
 
 ### Quicksort [Best: O(N Lg N), Avg: O(N Lg N), Worst: O(N^2)]
 - One of the most popular sorting due to its speed.
@@ -186,7 +246,7 @@ Sort by inserting an item from unsorted array to sorted array. Start with a sort
 3. Repeat this partitioning until the sublist size is 1 element.
 4. Then, combine the list and the list will be sorted. (HOW?)
 
-#### Quicksort in JavaScript
+#### Quicksort JavaScript Implementation
 
 ```
 function quickSort(arr, left, right){
