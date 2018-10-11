@@ -233,7 +233,6 @@ function merge(left, right){
 }
 ```
 
-
 ### Quicksort [Best: O(N Lg N), Avg: O(N Lg N), Worst: O(N^2)]
 - One of the most popular sorting due to its speed.
 - In practice, quicksort outperforms merge sort, selection sort, and insertion sort.
